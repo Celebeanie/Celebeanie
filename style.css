@@ -1,0 +1,182 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #15172a;
+  color: #a2dfb7;
+}
+
+h1, h2, nav ul li a, .pixel {
+  font-family: 'Press Start 2P', cursive; /* retro pixel font */
+  letter-spacing: 1px;
+}
+
+/* Header */
+header {
+  background-color: #15172a;
+  color: #a2dfb7;
+  border-bottom: 4px solid #2777ce;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+/* Smaller logo image for header and footer */
+img.logo {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 0.9em;
+  /* mint drop-shadow under the logo */
+  box-shadow: none;
+  filter: drop-shadow(2px 2px 0 #cff88d);
+}
+
+/* Title drop shadow to make the heading pop */
+h1 {
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Drop shadow for section headings (Introduction, Description) */
+.row .text h2 {
+  /* blue glow with a subtle dark offset for depth */
+  text-shadow: 0 0 8px #2777ce, 2px 2px 4px rgba(0,0,0,0.45);
+}
+
+/* Blue drop shadow for section paragraph text (Introduction, Description) */
+.row .text p {
+  text-shadow: 0 0 6px rgba(39,119,206,0.55), 1px 1px 2px rgba(0,0,0,0.35);
+}
+
+.header-top div.logo {
+  /* hide old div.logo fallback so it doesn't add a mint circle */
+  display: none;
+}
+
+nav {
+  background-color: #a2dfb7;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav ul li a {
+  color: #15172a;
+  text-decoration: none;
+  font-size: 0.9em;
+  text-shadow: 2px 2px #2777ce; /* retro shadow */
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: #2777ce;
+  text-shadow: none;
+  top: 2px;   /* shift down */
+  left: 2px;  /* shift right */
+}
+
+/* Layout rows */
+main {
+  padding: 2em;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-bottom: 3em;
+}
+
+.row img {
+  width: 40%;
+  border: 3px solid #2777ce;
+  border-radius: 8px;
+  filter: drop-shadow(4px 4px 4px #000); /* shadow follows transparency */
+}
+
+/* Utility to remove border from an individual image */
+.no-border {
+  border: none !important;
+}
+
+.row .text {
+  flex: 1;
+}
+
+.row.reverse {
+  flex-direction: row-reverse; /* ensures image right, text left */
+}
+
+/* Second-row layout: use flex so text centers vertically next to the image */
+.row.float {
+  display: flex;
+  align-items: center; /* vertical center of text and image */
+  gap: 2em;
+  margin-bottom: 3em;
+}
+
+.row.float .right-img {
+  order: 2; /* show image after the text in markup order */
+  width: 35%;
+  margin: 0; /* spacing handled by gap */
+  border: none;
+  border-radius: 8px;
+  filter: drop-shadow(4px 4px 4px #000);
+}
+
+.row.float .text {
+  order: 1;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 700px) {
+  .row img,
+  .row.float .right-img {
+    width: 100%;
+    float: none;
+    display: block;
+    margin: 0 0 1em 0;
+  }
+  .row {
+    display: block;
+  }
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2777ce;
+  border-top: 4px solid #cff88d; /* mint line touching the top of the footer */
+  color: #fff;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+footer div.logo {
+  /* hide old div.logo fallback so it doesn't add a mint circle */
+  display: none;
+}
+
+footer .left,
+footer .right {
+  margin: 0;
+}
+
+.pixel {
+  text-shadow: 2px 2px #000; /* retro shadow for labels */
+}

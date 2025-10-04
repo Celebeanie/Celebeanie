@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Yaelsee Temes’ Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <img src="images/Logo.PNG" alt="Logo" class="logo">
+      <h1>Yaelsee Temes’ Portfolio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Intro</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="experience.html">Exp</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Contact Me</h2>
+    <p>If you’d like to get in touch, please fill out the form below:</p>
+
+    <form class="contact-form" id="contactForm" action="" method="post" novalidate>
+      <div class="form-row two-col">
+        <div>
+          <label for="firstName">*First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+          <label for="lastName">*Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
+
+      <div class="form-row two-col">
+        <div>
+          <label for="email">*Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="phone">*Phone:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company">
+      </div>
+
+      <div class="form-row">
+        <label for="reason">*Reason:</label>
+        <input type="text" id="reason" name="reason" required autocomplete="off" aria-required="true">
+      </div>
+
+      <div class="form-row">
+        <label for="comments">Add. Comments:</label>
+        <textarea id="comments" name="comments" rows="5"></textarea>
+      </div>
+
+      <div class="form-row">
+        <button type="submit">Send</button>
+        <p class="form-note">Fields marked with * are required. This site uses a mail to fallback (opens your email client).</p>
+      </div>
+    </form>
+
+    <script>
+      // Build mailto fallback on submit
+      document.getElementById('contactForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const reason = document.getElementById('reason').value.trim();
+        const comments = document.getElementById('comments').value.trim();
+
+        if (!first || !last || !email || !phone || !reason) {
+          alert('Please complete all required fields (marked with *).');
+          return;
+        }
+
+        const subject = encodeURIComponent(`Portfolio contact: ${first} ${last} - ${reason}`);
+        let body = `Name: ${first} ${last}%0D%0AEmail: ${email}%0D%0APhone: ${phone}`;
+        if (company) body += `%0D%0ACompany: ${company}`;
+        body += `%0D%0AReason: ${reason}%0D%0A%0D%0AComments:%0D%0A${encodeURIComponent(comments)}`;
+
+        // open default mail client
+        window.location.href = `mailto:example@gmail.com?subject=${subject}&body=${body}`;
+      });
+    </script>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="left"><span class="pixel">Phone:</span> (###)-###-####</p>
+    <img src="images/Logo.PNG" alt="Logo" class="logo">
+    <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
+  </footer>
+</body>
+</html>
+

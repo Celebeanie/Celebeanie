@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works — Yaelsee Temes’ Portfolio</title>
+  <meta name="description" content="Welcome to my Portfolio's Works page, here you will find some samples of the different things I have worked on.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <img src="images/Logo.PNG" alt="Logo" class="logo" />
+      <h1>Yaelsee Temes’ Portfolio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Intro</a></li>
+        <li><a href="works.html" class="active">Works</a></li>
+        <li><a href="experience.html">Exp</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-section">
+      <h2>Works</h2>
+      <p class="intro-paragraph">
+        This page showcases a variety of different works through different mediums outside of those already shown on other pages: Adobe Photoshop, Adobe Illustrator, image editing, painterly, etc.
+      </p>
+    </section>
+
+    <!-- Work Entries -->
+    <section class="work-row">
+      <figure>
+        <img src="images/CassetteAlbumCover.png" alt="Cassette Album Cover" class="work-img fade-in-left" />
+        <figcaption class="work-caption">Cassette Album Cover — colors are inspired by retro themes.</figcaption>
+      </figure>
+      <div class="text">
+        <h2>Cassette Album Cover</h2>
+        <p>A small cassette album cover design that is made using copyright free images made in Photoshop.</p>
+      </div>
+    </section>
+
+    <section class="work-row reverse">
+      <figure>
+        <img src="images/DingleBerriesApples.png" alt="Dingle Berries and Apples" class="work-img fade-in-right" />
+        <figcaption class="work-caption">Dingle Berries — the apple was drawn in photoshop using oil brushes.</figcaption>
+      </figure>
+      <div class="text">
+        <h2>Dingle Berries / Apples</h2>
+        <p>A simple ad idea based on a fictional Dingle Berry apple product made in Photoshop.</p>
+      </div>
+    </section>
+
+    <section class="work-row">
+      <figure>
+        <img src="images/MeltedClock.png" alt="Melted Clock" class="work-img fade-in-left" />
+        <figcaption class="work-caption">Melted Clock — inspired by the melted clock artwork (the original image is a jpg).</figcaption>
+      </figure>
+      <div class="text">
+        <h2>Melted Clock</h2>
+        <p>An attempt at recreating the melted clock design in Illustrator.</p>
+      </div>
+    </section>
+
+    <section class="work-row reverse">
+      <figure>
+        <img src="images/BirdKeeper.png" alt="Bird Keeper" class="work-img fade-in-right" />
+        <figcaption class="work-caption">Bird Keeper — an image comprised of three different images made in Photoshop.</figcaption>
+      </figure>
+      <div class="text">
+        <h2>Bird Keeper</h2>
+        <p>This image is comprised of three images, the man, the parrot, and the falcon, and together form the birdkeeper.</p>
+      </div>
+    </section>
+
+    <section class="work-row">
+      <figure>
+        <img src="images/PlatoAllegoryNatureofManPoem.png" alt="Plato Allegory" class="work-img fade-in-left" />
+        <figcaption class="work-caption">Plato: Allegory of the Nature of Man — a poem that depicts the nature of man.</figcaption>
+      </figure>
+      <div class="text">
+        <h2>Plato Allegory / Poem</h2>
+        <p>A poem and drawing created using snippets of Plato's allegory made in Photoshop.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="left"><span class="pixel">Phone:</span> (###)-###-####</p>
+    <img src="images/Logo.PNG" alt="Logo" class="logo" />
+    <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
+  </footer>
+
+  <script>
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

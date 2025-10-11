@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Yaelsee Temes’ Portfolio</title>
+  <meta name="description" content="Welcome to my Portfolio's Experience page, here you will find what I have previously been involved with.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <img src="images/Logo.PNG" alt="Logo" class="logo" />
+      <h1>Yaelsee Temes’ Portfolio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Intro</a></li>
+        <li><a href="works.html">Works</a></li>
+        <li><a href="experience.html" class="active">Exp</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-section">
+      <h2>Experience</h2>
+      <p class="intro-paragraph">
+        I worked as part of the fan project <strong>Gensokyo Reimagined</strong>, focusing on creating user interfaces, in-game item assets, and weapon designs.
+        To provide some insight on what Gensokyo Reimagined is, it is a Minecraft MMO fan game based on the Touhou Project series, and during my involvement 
+        I specialized in creating pixel art assets for different aspects of the game: items, hud, menu, icons, weapons, and tools. I don't want to spoil too much
+        of the things I have done for this large scale passion project and thus included only three of the things I worked on. 
+      </p>
+      <p class="intro-paragraph">
+        The first is one of the menu's 
+        I designed, the loom, which I was told to make with a purple aesthetic. To tie it in with Touhou I also added talisman stuck throughout the borders in order
+        to make it appear that it is trying to conceal something. I also added a golden thread to give it a mystical feel and tie it to what the loom is primarily
+        used for. For the second sample I chose a scrapped icon which is based on one of the characters held weapons. For the final image it was made for one of 
+        the weapons in the game, the pile driver, which I was told to make with a godly aura and autumn theme. 
+      </p>
+      <p class="intro-paragraph">
+        If any of these works or descriptions of the project peaked your interest you can find out more at:
+        <a href="https://www.gensokyoreimagined.net/" target="_blank" rel="noopener noreferrer">gensokyoreimagined.net</a>.
+      </p>
+    </section>
+
+    <!-- Experience Blocks -->
+    <section class="exp-grid">
+      <div class="exp-item fade-in-left">
+        <img src="images/loomgui.png" alt="UI Design Placeholder" class="exp-img" />
+        <h3>UI / Interface Work</h3>
+        <p>I've worked on menu and ui designs, following a cohesive style based on what was asked of me.</p>
+      </div>
+
+      <div class="exp-item fade-in-right">
+        <img src="images/youmuicon.png" alt="Items Placeholder" class="exp-img" />
+        <h3>Icons</h3>
+        <p>In addition to menu designs, I also worked on icons for items and quest/achievement related goals.</p>
+      </div>
+
+      <div class="exp-item fade-in-left">
+        <img src="images/piledriver.png" alt="Weapons Placeholder" class="exp-img" />
+        <h3>Weapons</h3>
+        <p>I worked alongside the design team to create weapons based on their metrics.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="left"><span class="pixel">Phone:</span> (###)-###-####</p>
+    <img src="images/Logo.PNG" alt="Logo" class="logo" />
+    <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
+  </footer>
+
+  <script>
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

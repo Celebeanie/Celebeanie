@@ -40,7 +40,7 @@
     <h2>Contact Me</h2>
     <p>If you’d like to get in touch, please fill out the form below:</p>
 
-    <form class="contact-form" id="contactForm" action="" method="post" novalidate>
+    <form class="contact-form" id="contactForm" novalidate>
       <div class="form-row two-col">
         <div>
           <label for="firstName">*First Name:</label>
@@ -80,14 +80,14 @@
 
       <div class="form-row">
         <button type="submit">Send</button>
-        <p class="form-note">Fields marked with * are required. This site uses a mail to fallback (opens your email client).</p>
+        <p class="form-note">Fields marked with * are required.</p>
       </div>
     </form>
 
     <script>
-      // Build mailto fallback on submit
-      document.getElementById('contactForm').addEventListener('submit', function(e){
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
+
         const first = document.getElementById('firstName').value.trim();
         const last = document.getElementById('lastName').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -101,13 +101,18 @@
           return;
         }
 
-        const subject = encodeURIComponent(`Portfolio contact: ${first} ${last} - ${reason}`);
-        let body = `Name: ${first} ${last}%0D%0AEmail: ${email}%0D%0APhone: ${phone}`;
-        if (company) body += `%0D%0ACompany: ${company}`;
-        body += `%0D%0AReason: ${reason}%0D%0A%0D%0AComments:%0D%0A${encodeURIComponent(comments)}`;
+        // Display confirmation message
+        const formContainer = document.querySelector('.contact-form');
+        formContainer.innerHTML = `
+          <h3>Thank you, ${first}!</h3>
+          <p>Your message has been submitted successfully.</p>
+          <p>We’ll get back to you soon.</p>
+        `;
 
-        // open default mail client
-        window.location.href = `mailto:example@gmail.com?subject=${subject}&body=${body}`;
+        // Log form data to console (for testing)
+        console.log({
+          first, last, email, phone, company, reason, comments
+        });
       });
     </script>
   </main>

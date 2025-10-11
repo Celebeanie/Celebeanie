@@ -40,6 +40,7 @@
     <h2>Contact Me</h2>
     <p>If you’d like to get in touch, please fill out the form below:</p>
 
+    <!-- Fully static form: no action/method -->
     <form class="contact-form" id="contactForm" novalidate>
       <div class="form-row two-col">
         <div>
@@ -85,6 +86,7 @@
     </form>
 
     <script>
+      // Client-side validation + confirmation (fully static)
       document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -96,12 +98,13 @@
         const reason = document.getElementById('reason').value.trim();
         const comments = document.getElementById('comments').value.trim();
 
+        // Validate required fields
         if (!first || !last || !email || !phone || !reason) {
           alert('Please complete all required fields (marked with *).');
           return;
         }
 
-        // Display confirmation message
+        // Replace form with confirmation message
         const formContainer = document.querySelector('.contact-form');
         formContainer.innerHTML = `
           <h3>Thank you, ${first}!</h3>
@@ -109,7 +112,7 @@
           <p>We’ll get back to you soon.</p>
         `;
 
-        // Log form data to console (for testing)
+        // Optional: log form data for testing
         console.log({
           first, last, email, phone, company, reason, comments
         });

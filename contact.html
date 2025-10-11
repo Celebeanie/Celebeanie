@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Yaelsee Temes’ Portfolio</title>
   <meta name="description" content="Welcome to my Portfolio's Contact page, where you can fill out a form to get in touch." />
+
+  <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     img-src 'self' https://* data:;
@@ -13,9 +15,11 @@
     font-src 'self' https://fonts.gstatic.com;
     object-src 'none';
   " />
+
   <link rel="stylesheet" href="style.css?v=2" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <header>
     <div class="header-top">
@@ -28,7 +32,7 @@
         <li><a href="works.html">Works</a></li>
         <li><a href="experience.html">Exp</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -37,14 +41,8 @@
     <h2>Contact Me</h2>
     <p>If you’d like to get in touch, please fill out the form below:</p>
 
-    <!-- Form now uses action="#" to meet assignment requirements -->
-    <form
-      class="contact-form"
-      id="contactForm"
-      action="#"
-      method="post"
-      novalidate
-    >
+    <!-- ✅ Form uses action="#" and JS handles submission -->
+    <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
       <div class="form-row two-col">
         <div>
           <label for="firstName">*First Name:</label>
@@ -74,14 +72,7 @@
 
       <div class="form-row">
         <label for="reason">*Reason:</label>
-        <input
-          type="text"
-          id="reason"
-          name="reason"
-          required
-          autocomplete="off"
-          aria-required="true"
-        />
+        <input type="text" id="reason" name="reason" required autocomplete="off" aria-required="true" />
       </div>
 
       <div class="form-row">
@@ -94,11 +85,21 @@
         <p class="form-note">Fields marked with * are required.</p>
       </div>
     </form>
+  </main>
 
-    <script>
-      document.getElementById("contactForm").addEventListener("submit", function (e) {
-        // prevent GitHub Pages POST error
-        e.preventDefault();
+  <footer>
+    <p class="left"><span class="pixel">Phone:</span> (###)-###-####</p>
+    <img src="images/Logo.PNG" alt="Logo" class="logo" />
+    <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
+  </footer>
+
+  <!-- ✅ Script moved to the end so it attaches before submission -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // prevents 405 error
 
         const first = this.firstName.value.trim();
         const last = this.lastName.value.trim();
@@ -117,18 +118,12 @@
         this.innerHTML = `
           <h3>Thank you, ${first}!</h3>
           <p>Your message has been submitted successfully.</p>
-          <p>We’ll get back to you soon.</p>
+          <p>I’ll get back to you soon.</p>
         `;
 
         console.log({ first, last, email, phone, company, reason, comments });
       });
-    </script>
-  </main>
-
-  <footer>
-    <p class="left"><span class="pixel">Phone:</span> (###)-###-####</p>
-    <img src="images/Logo.PNG" alt="Logo" class="logo" />
-    <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
-  </footer>
+    });
+  </script>
 </body>
 </html>

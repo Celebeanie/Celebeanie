@@ -41,7 +41,7 @@
     <h2>Contact Me</h2>
     <p>If you’d like to get in touch, please fill out the form below:</p>
 
-    <!-- ✅ Form uses action="#" and JS handles submission -->
+    <!-- Form uses action="#" and JS handles submission -->
     <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
       <div class="form-row two-col">
         <div>
@@ -93,13 +93,13 @@
     <p class="right"><span class="pixel">Email:</span> example@gmail.com</p>
   </footer>
 
-  <!-- ✅ Script moved to the end so it attaches before submission -->
+  <!-- Script moved to the end so it attaches before submission -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("contactForm");
 
       form.addEventListener("submit", function (e) {
-        e.preventDefault(); // prevents 405 error
+        e.preventDefault(); // prevents 405 error?
 
         const first = this.firstName.value.trim();
         const last = this.lastName.value.trim();

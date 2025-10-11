@@ -202,12 +202,19 @@ footer .right {
   color: #2777ce;
 }
 
-/* Contact form styles */
+/* --- UPDATED Contact form styles --- */
 .contact-form {
   max-width: 700px;
-  margin-top: 1em;
+  margin: 2em auto; /* centers horizontally */
   display: grid;
-  gap: 0.6em;
+  gap: 0.8em;
+  justify-content: center; /* centers the internal layout */
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2em;
+  border-radius: 12px;
+  border: 2px solid rgba(39, 119, 206, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .contact-form label {
@@ -250,19 +257,22 @@ select:-webkit-autofill {
 }
 
 .contact-form button[type="submit"] {
-  width: 140px;
-  padding: 0.6em;
+  width: 160px;
+  padding: 0.8em;
   background: #a2dfb7;
   color: #15172a;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  justify-self: center; /* centers the button */
+  font-family: 'Press Start 2P', cursive;
 }
 
 .contact-form .form-note {
   font-size: 0.85em;
   color: rgba(39, 119, 206, 1);
   margin-top: 0.5em;
+  text-align: center;
 }
 
 .contact-form,
@@ -276,11 +286,14 @@ select:-webkit-autofill {
 
 .contact-form .two-col {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0.8em;
 }
 
 @media (max-width: 520px) {
+  .contact-form .two-col {
+    grid-template-columns: 1fr;
+  }
   .table-container th, .table-container td {
     padding: 0.5em;
     font-size: 0.85em;
@@ -370,8 +383,6 @@ select:-webkit-autofill {
 }
 
 /* --- Works Page Specific Styles --- */
-
-/* Center the Works page heading */
 .intro-section h2 {
   text-align: center;
   font-size: 1.6em;
@@ -379,7 +390,6 @@ select:-webkit-autofill {
   text-shadow: 0 0 8px #2777ce, 2px 2px 4px rgba(0,0,0,0.45);
 }
 
-/* Centered intro paragraph under the title */
 .intro-paragraph {
   max-width: 900px;
   color: rgba(162,223,183,0.95);
@@ -388,7 +398,6 @@ select:-webkit-autofill {
   text-align: center;
 }
 
-/* Row layout: image + text side by side */
 .work-row {
   display: flex;
   align-items: center;
@@ -398,12 +407,10 @@ select:-webkit-autofill {
   flex-wrap: wrap;
 }
 
-/* Reverse order for alternating layout */
 .work-row.reverse {
   flex-direction: row-reverse;
 }
 
-/* Image styling */
 .work-img {
   width: 100%;
   max-width: 420px;
@@ -414,7 +421,6 @@ select:-webkit-autofill {
   filter: drop-shadow(6px 6px 10px rgba(0,0,0,0.6));
 }
 
-/* Caption under each image */
 .work-caption {
   margin-top: 0.5em;
   font-size: 0.85em;
@@ -422,7 +428,6 @@ select:-webkit-autofill {
   text-align: center;
 }
 
-/* Text beside the image */
 .work-row .text {
   max-width: 420px;
   text-align: left;
@@ -430,7 +435,6 @@ select:-webkit-autofill {
   color: rgba(162,223,183,0.95);
 }
 
-/* Headings beside images */
 .work-row .text h2 {
   margin-top: 0;
   margin-bottom: 0.6em;
@@ -439,7 +443,6 @@ select:-webkit-autofill {
   font-size: 1.1em;
 }
 
-/* Fade-in animations */
 .fade-in-left, .fade-in-right {
   opacity: 0;
   transform: translateX(30px);
@@ -455,7 +458,6 @@ select:-webkit-autofill {
   transform: translateX(0);
 }
 
-/* Responsive layout for mobile */
 @media (max-width: 800px) {
   .work-row {
     flex-direction: column;
@@ -554,4 +556,3 @@ select:-webkit-autofill {
   color: #a2dfb7;
   text-shadow: 0 0 6px #2777ce;
 }
-
